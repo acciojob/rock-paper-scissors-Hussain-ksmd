@@ -1,2 +1,45 @@
 
 /* Your CSS Code here. */
+#input {
+    width: 20%;
+  }
+
+  #play-game {
+    width: 10%;
+  }
+
+  #rock {
+    width: 10%;
+  }
+
+  #paper {
+    width: 10%;
+  }
+
+  #scissors {
+    width: 10%;
+  }
+
+  #computer-choose {
+    width: 20%;
+  }
+
+  #round-result {
+    width: 20%;
+  }
+
+  #rounds-left {
+    width: 20%;
+  }
+
+  #user-points {
+    width: 20%;
+  }
+
+  #computer-points {
+    width: 20%;
+  }
+
+  #game-result {
+    width: 20%;
+  }

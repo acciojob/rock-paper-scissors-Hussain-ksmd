@@ -3,10 +3,32 @@
 <html>
 
 <head>
+	<title>Rock, Paper, Scissors Game</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+	  
+	<body>
+	  <h3>Rock, Paper, Scissors</h3>
+	  <input type="number" data-ns-test="game-number" id="input">
+	  <button data-ns-test="play-game" id="play-game" onclick="playGame()">Play</button>
+	  <div>
+		<button data-ns-test="rock" id="rock" onclick="select('rock')">Rock</button>
+		<button data-ns-test="paper" id="paper" onclick="select('paper')">Paper</button>
+		<button data-ns-test="scissors" id="scissors" onclick="select('scissors')">Scissors</button>
+	  </div>
+	  <div>
+		<p>Computer Choose: <span data-ns-test="computer-choose" id="computer-choose"></span></p>
+		<p>Round Result: <span data-ns-test="round-result" id="round-result"></span></p>
+		<p>Rounds Left: <span data-ns-test="rounds-left" id="rounds-left"></span></p>
+		<p>User Points: <span data-ns-test="user-points" id="user-points"></span></p>
+		<p>Computer Points: <span data-ns-test="computer-points" id="computer-points"></span></p>
+		<p>Game Result: <span data-ns-test="game-result" id="game-result"></span></p>
+	  </div>
+	</body>
+	</html>
 	<!-- the entire body must be written by student -->
     <script type="text/javascript" src="./script.js">
 </script>
