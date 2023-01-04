@@ -9,24 +9,39 @@
 
 <body>
 
-	  
-	<body>
-	  <h3>Rock, Paper, Scissors</h3>
-	  <input type="number" data-ns-test="game-number" id="input">
-	  <button data-ns-test="play-game" id="play-game" onclick="playGame()">Play</button>
-	  <div>
-		<button data-ns-test="rock" id="rock" onclick="select('rock')">Rock</button>
-		<button data-ns-test="paper" id="paper" onclick="select('paper')">Paper</button>
-		<button data-ns-test="scissors" id="scissors" onclick="select('scissors')">Scissors</button>
-	  </div>
-	  <div>
-		<p>Computer Choose: <span data-ns-test="computer-choose" id="computer-choose"></span></p>
-		<p>Round Result: <span data-ns-test="round-result" id="round-result"></span></p>
-		<p>Rounds Left: <span data-ns-test="rounds-left" id="rounds-left"></span></p>
-		<p>User Points: <span data-ns-test="user-points" id="user-points"></span></p>
-		<p>Computer Points: <span data-ns-test="computer-points" id="computer-points"></span></p>
-		<p>Game Result: <span data-ns-test="game-result" id="game-result"></span></p>
-	  </div>
+	<div id="game">
+  <div id="input-container">
+    <label for="game-number">Enter number of rounds:</label>
+    <input type="number" id="game-number" min="1" value="1">
+  </div>
+  <button id="play-game">Play</button>
+  <div id="game-container" style="display: none;">
+    <div id="choices">
+      <button data-ns-test="rock">Rock</button>
+      <button data-ns-test="paper">Paper</button>
+      <button data-ns-test="scissors">Scissors</button>
+    </div>
+    <div id="score">
+      <div>
+        <p>Rounds left:</p>
+        <p data-ns-test="rounds-left">0</p>
+      </div>
+      <div>
+        <p>User points:</p>
+        <p data-ns-test="user-points">0</p>
+      </div>
+      <div>
+        <p>Computer points:</p>
+        <p data-ns-test="computer-points">0</p>
+      </div>
+    </div>
+    <p data-ns-test="computer-choose">Computer choose:</p>
+    <p data-ns-test="round-result">Round result:</p>
+    <p data-ns-test="game-result">Game result:</p>
+  </div>
+</div>
+
+	
 	</body>
 	</html>
 	<!-- the entire body must be written by student -->

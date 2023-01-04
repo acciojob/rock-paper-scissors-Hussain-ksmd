@@ -1,49 +1,51 @@
-//your code here
-let computerChoose;
-let turnsLeft;
-let userPoints = 0;
-let computerPoints = 0;
+const gameNumberInput = document.getElementById("game-number");
+const playButton = document.getElementById("play-game");
+const gameContainer = document.getElementById("game-container");
+const choices = document.querySelectorAll("[data-ns-test='rock'], [data-ns-test='paper'], [data-ns-test='scissors']");
+const roundsLeft = document.querySelector("[data-ns-test='rounds-left']");
+const userPoints = document.querySelector("[data-ns-test='user-points']");
+const computerPoints = document.querySelector("[data-ns-test='computer-points']");
+const computerChoose = document.querySelector("[data-ns-test='computer-choose']");
+const roundResult = document.querySelector("[data-ns-test='round-result']");
+const gameResult = document.querySelector("[data-ns-test='game-result']");
 
-function playGame() {
-  turnsLeft = document.querySelector('#input').value;
-  document.querySelector('#rounds-left').textContent = turnsLeft;
-}
+let gameNumber = null;
+let userChoice = null;
+let computerChoice = null;
 
-function select(userChoose) {
-  turnsLeft--;
-  computerChoose = Math.floor(Math.random() * 3);
-  document.querySelector('#computer-choose').textContent = setComputerChoose();
-  document.querySelector('#rounds-left').textContent = turnsLeft;
+window.computerChoose = function() {
+  return Math.floor(Math.random() * 3);
+};
 
-  if (userChoose === setComputerChoose()) {
-    document.querySelector('#round-result').textContent = 'Tie';
-  } else if (userChoose === 'rock' && setComputerChoose() === 'scissors' || userChoose === 'paper' && setComputerChoose() === 'rock' || userChoose === 'scissors' && setComputerChoose() === 'paper') {
-    document.querySelector('#round-result').textContent = 'Won';
-    userPoints++;
-    document.querySelector('#user-points').textContent = userPoints;
-  } else {
-    document.querySelector('#round-result').textContent = 'Lose';
-    computerPoints++;
-    document.querySelector('#computer-points').textContent = computerPoints;
-  }
+playButton.addEventListener("click", function() {
+  gameNumber = gameNumberInput.value;
+  gameContainer.style.display = "block";
+  roundsLeft.innerText = gameNumber;
+});
 
-  if (turnsLeft === 0) {
-    if (userPoints > computerPoints) {
-      document.querySelector('#game-result').textContent = 'Won';
-    } else if (userPoints < computerPoints) {
-      document.querySelector('#game-result').textContent = 'Lose';
+for (let choice of choices) {
+  choice.addEventListener("click", function() {
+    userChoice = this.innerText.toLowerCase();
+    computerChoice = ["rock", "paper", "scissors"][window.computerChoose()];
+    computerChoose.innerText = `Computer choose: ${computerChoice}`;
+    if (userChoice === computerChoice) {
+      roundResult.innerText = "Round result: Tie";
+    } else if (userChoice === "rock" && computerChoice === "scissors" || userChoice === "paper" && computerChoice === "rock" || userChoice === "scissors" && computerChoice === "paper") {
+      roundResult.innerText = "Round result: Won";
+      userPoints.innerText = parseInt(userPoints.innerText) + 1;
     } else {
-      document.querySelector('#game-result').textContent = 'Tie';
+      roundResult.innerText = "Round result: Lose";
+      computerPoints.innerText = parseInt(computerPoints.innerText) + 1;
     }
-  }
-}
-
-function setComputerChoose() {
-  if (computerChoose === 0) {
-    return 'rock';
-  } else if (computerChoose === 1) {
-    return 'paper';
-  } else {
-    return 'scissors';
-  }
+    roundsLeft.innerText = parseInt(roundsLeft.innerText) - 1;
+    if (roundsLeft.innerText === "0") {
+      if (userPoints.innerText > computerPoints.innerText) {
+        gameResult.innerText = "Game result: Won";
+      } else if (userPoints.innerText < computerPoints.innerText) {
+        gameResult.innerText = "Game result: Lose";
+      } else {
+        gameResult.innerText = "Game result: Tie";
+      }
+    }
+  });
 }

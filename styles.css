@@ -1,45 +1,63 @@
+#game {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-/* Your CSS Code here. */
-#input {
-    width: 20%;
-  }
+#input-container {
+  margin: 20px 0;
+}
 
-  #play-game {
-    width: 10%;
-  }
+#game-number {
+  width: 50px;
+  font-size: 18px;
+}
 
-  #rock {
-    width: 10%;
-  }
+#play-game {
+  width: 75px;
+  height: 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+}
 
-  #paper {
-    width: 10%;
-  }
+#play-game:hover {
+  background-color: #3e8e41;
+}
 
-  #scissors {
-    width: 10%;
-  }
+#choices {
+  display: flex;
+  margin: 20px 0;
+}
 
-  #computer-choose {
-    width: 20%;
-  }
+button {
+  width: 75px;
+  height: 60px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+}
 
-  #round-result {
-    width: 20%;
-  }
+button:hover {
+  background-color: #ddd;
+}
 
-  #rounds-left {
-    width: 20%;
-  }
+#score {
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-around;
+}
 
-  #user-points {
-    width: 20%;
-  }
+#score p {
+  margin: 0;
+  font-size: 18px;
+}
 
-  #computer-points {
-    width: 20%;
-  }
-
-  #game-result {
-    width: 20%;
-  }
+#score p:first-of-type {
+  font-weight: bold;
+}
